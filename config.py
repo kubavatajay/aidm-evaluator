@@ -20,13 +20,13 @@ RATINGS = ["C", "D", "N"]
 RATING_LABELS = {
     "C": "Competent",
     "D": "Developing",
-    "N": "Needs Improvement",
+    "N": "Not yet",
 }
 
 RATING_DESCRIPTIONS = {
-    "C": "Performs the skill independently and reliably, to standard.",
-    "D": "Performs the skill with prompting or partial success; progressing.",
-    "N": "Cannot yet perform the skill to standard; needs focused practice.",
+    "C": "Performs the skill safely and to tolerance, unaided. Cleared for this skill.",
+    "D": "Minor prompting or minor errors within tolerance. Brief focused repetition, then re-check.",
+    "N": "Unsafe technique or out of tolerance. Named remediation before clinic entry for this skill.",
 }
 
 # Colors used in PDF/CSV/legend rendering.
@@ -36,49 +36,74 @@ RATING_COLORS = {
     "N": "#C62828",  # red
 }
 
-# A "Friday gate" passes when the resident has no N's and meets the C threshold.
+# The Friday competency gate: "Competent across all domains = PASS." A resident
+# clears the gate with no "Not yet" (N) ratings and at least this fraction at "C".
 GATE_MIN_COMPETENT = 0.6  # fraction of evaluated skills that must be "C"
 
 # ---------------------------------------------------------------------------
-# People and competencies. Replace these with your real cohort/curriculum.
+# People and competencies — AIDM Orthodontic Preclinical Boot Camp 2026.
+# Faculty per the curriculum; residents are MASKED IDs (privacy by default —
+# typodont/peer-practice only, no patient data, names masked).
 # ---------------------------------------------------------------------------
 MENTORS = [
-    "Dr. Patel",
-    "Dr. Nguyen",
-    "Dr. Okafor",
-    "Dr. Romano",
+    "Dr. Ravikumar Anthony",   # Program Director
+    "Dr. Ajay Kubavat",        # Adjunct Director of Academic Affairs
+    "Dr. Anthony Patel",       # Faculty (Friday)
 ]
 
+# Founding cohort: 8 Residency Year 1 residents, masked.
 RESIDENTS = [
-    "Alex Kim",
-    "Bianca Torres",
-    "Caleb Johnson",
-    "Dana Whitfield",
-    "Ekene Eze",
-    "Farah Haddad",
+    "Resident 1",
+    "Resident 2",
+    "Resident 3",
+    "Resident 4",
+    "Resident 5",
+    "Resident 6",
+    "Resident 7",
+    "Resident 8",
 ]
 
-# Skills grouped by domain. The flat list (SKILLS) is derived below.
+# The seven interlinked skill domains, each with its assessable skills.
+# The flat list (SKILLS) is derived below.
 SKILL_GROUPS = {
-    "Airway": [
-        "Bag-mask ventilation",
-        "Endotracheal intubation",
-        "Supraglottic airway placement",
+    "Foundations & Bonding Science": [
+        "Ergonomics & operator positioning",
+        "Bracket types & prescriptions",
+        "Bonding material science & isolation",
     ],
-    "Vascular Access": [
-        "Peripheral IV placement",
-        "Ultrasound-guided IV",
-        "Central line insertion",
+    "Direct Bonding": [
+        "Direct bonding (full arch)",
+        "Debonding & rebonding",
     ],
-    "Procedures": [
-        "Suturing & wound closure",
-        "Lumbar puncture",
-        "Chest tube placement",
+    "Wire Science & Bending": [
+        "Wire identification (SS / NiTi / Gummetal)",
+        "First-order bends & arch form",
+        "Second / third-order & control bends",
+        "Clinical arches & auxiliaries",
     ],
-    "Clinical Reasoning": [
-        "Differential diagnosis",
-        "Point-of-care ultrasound (POCUS)",
-        "Disposition decision-making",
+    "Archwire Placement & Ligation": [
+        "Archwire seating & engagement",
+        "Elastomeric & steel ligation",
+        "Cinchback",
+        "Archwire sequencing logic",
+    ],
+    "Records & Cephalometrics": [
+        "Standardized photographic series",
+        "Cephalometric landmark identification",
+        "Dolphin workflow & tracing",
+    ],
+    "Advanced Bonding & Digital Orthodontics": [
+        "Indirect bonding (IDB)",
+        "Aligner attachment placement",
+        "Interproximal reduction (IPR)",
+        "Removable appliance fabrication",
+        "Banding & separators",
+        "Intraoral scanning",
+        "Digital workflow / ClinCheck / aligners",
+    ],
+    "Patient Care & Emergencies": [
+        "Patient instructions",
+        "Orthodontic emergency management",
     ],
 }
 
