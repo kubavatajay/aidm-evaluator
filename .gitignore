@@ -1,0 +1,14 @@
+# Local data store (created at runtime)
+data/
+.streamlit/secrets.toml
+service_account.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# OS
+.DS_Store
