@@ -62,6 +62,27 @@ On the next launch the *Setup* page will show **Storage: Google Sheets**.
 
 ---
 
+## Deploy to Streamlit Community Cloud (free)
+
+You can host this for your mentors for free, no server to manage:
+
+1. Push this repo to GitHub (the included `.gitignore` keeps secrets out).
+2. Go to <https://share.streamlit.io>, sign in with GitHub, and click
+   **New app**.
+3. Pick this repo and branch, set the **Main file path** to `app.py`, and deploy.
+4. Open **Advanced settings → Secrets** and paste the *contents* of your
+   `.streamlit/secrets.toml` (same TOML layout as `secrets.toml.example`).
+   Never commit the real file — this box is where the deployed app reads it.
+
+> Use **Google Sheets** storage for any real deployment. Local-JSON storage
+> lives on the app's ephemeral disk and is wiped whenever the app restarts.
+
+If the repo is public, double-check that only `secrets.toml.example` is
+committed and the real `secrets.toml`, `service_account.json`, and `data/` are
+absent (they are git-ignored by default).
+
+---
+
 ## The app
 
 - **Evaluate** — sign in, pick resident / skill / date, attach a photo (upload or
